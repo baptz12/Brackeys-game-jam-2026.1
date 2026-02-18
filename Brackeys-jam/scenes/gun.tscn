@@ -1,8 +1,61 @@
 [gd_scene format=3 uid="uid://d35sg858fhuoc"]
 
 [ext_resource type="PackedScene" uid="uid://btb5vcjcrlwgt" path="res://assets/Pistol.glb" id="1_x77fm"]
+[ext_resource type="Texture2D" uid="uid://dmyx1pi5mn7v7" path="res://assets/muzzle-flash.png" id="2_og67c"]
+
+[sub_resource type="Gradient" id="Gradient_og67c"]
+offsets = PackedFloat32Array(0, 0.032786883, 0.5081967, 0.90163934, 0.9672131, 0.9836066, 1)
+colors = PackedColorArray(0.83977324, 0.4225376, 0.14568666, 1, 0.8303308, 0.616321, 0.3838078, 1, 0.7517482, 0.18279493, 0.22510272, 1, 0.9019608, 0.65882355, 0.5568628, 0.6431373, 0.92752177, 0.7387861, 0.61355317, 1, 0.8804396, 0.58985996, 0.50950396, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gp1hk"]
+gradient = SubResource("Gradient_og67c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qd4js"]
+spread = 17.0
+initial_velocity_min = 8.0
+initial_velocity_max = 12.0
+scale_min = 0.5
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_gp1hk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og67c"]
+shading_mode = 0
+albedo_color = Color(0.9037691, 0.36624888, 0.2231152, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_gp1hk"]
+material = SubResource("StandardMaterial3D_og67c")
+size = Vector2(0.05, 0.05)
 
 [node name="Gun" type="Node3D" unique_id=118917598]
 
 [node name="Root Scene" parent="." unique_id=1853132336 instance=ExtResource("1_x77fm")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Muzzle" type="Node3D" parent="." unique_id=822481351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82707405, 0.11748143, 0.34312338)
+
+[node name="Sprite3D" type="Sprite3D" parent="Muzzle" unique_id=822936630]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.010361165, 0, 0)
+visible = false
+billboard = 1
+texture = ExtResource("2_og67c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Muzzle" unique_id=1252940065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29687142, 0, 0)
+visible = false
+light_color = Color(0.9999998, 0.54364073, 0.25932688, 1)
+light_energy = 2.5
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Muzzle" unique_id=2063785939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76678896, 0.08538834, 0)
+emitting = false
+amount = 4
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qd4js")
+draw_pass_1 = SubResource("QuadMesh_gp1hk")
