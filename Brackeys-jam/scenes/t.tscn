@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dgerxfmjsodpv"]
+
+[ext_resource type="PackedScene" uid="uid://wuds1ii0l58i" path="res://assets/map/Industrial_exterior_v2.glb" id="1_xgu08"]
+
+[node name="Node3D" type="Node3D" unique_id=1555295453]
+
+[node name="Industrial_exterior_v2" parent="." unique_id=1015017192 instance=ExtResource("1_xgu08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84249747, 0, 0.84343696)
+
+[node name="Alphalt_Floor" parent="Industrial_exterior_v2" index="56" unique_id=1984033462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 1, 12.280996)
+
+[editable path="Industrial_exterior_v2"]

@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://dkko1u40aoarv"]
+
+[ext_resource type="Script" uid="uid://b11iuqsskmcv8" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=91757608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=19023524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.003921569, 0.003921569, 0.003921569, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1196865412]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=195174948]
+layout_mode = 2
+text = "PLAY"
+
+[node name="HowToPlayButton" type="Button" parent="VBoxContainer" unique_id=2055355675]
+layout_mode = 2
+text = "HOW TO PLAY"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1243765952]
+layout_mode = 2
+text = "EXIT"
+
+[node name="HowToPlayPanel" type="ColorRect" parent="." unique_id=555478341]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+
+[node name="Label" type="Label" parent="HowToPlayPanel" unique_id=1595708114]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1193.5
+offset_top = -183.5
+offset_right = 1193.5
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your goal is simple. 
+
+You must activate the three generators on the map indicated by a red light. 
+Just stay close to them for 10 seconds with your flashlight on to activate them.
+
+But be careful when you turn on your flashlight! Someone could see you and chase you very quickly. I advise you to
+ know how to use your weapon if this strange man arrives. However, you only have 6 rounds of ammunition, 
+and he will only be paralyzed for 3 seconds if you shoot him.
+So don't waste your ammunition, and don't forget to turn off your flashlight if he arrives!
+
+Good luck!
+
+Keys:
+
+WASD/ZSQD: Movement
+Shift: Run
+F: Flashlight
+Left click: Shoot"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="HowToPlayPanel" unique_id=1645666945]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 88.0
+offset_bottom = 53.0
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="HowToPlayPanel/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,54 +1,143 @@
 [gd_scene format=3 uid="uid://gg6q0vb7yx2a"]
 
 [ext_resource type="PackedScene" uid="uid://dvtdu42ptx4yt" path="res://assets/PSX_BagMan.glb" id="1_7waic"]
+[ext_resource type="Script" uid="uid://eju2f5bqkyl0" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="AudioStream" uid="uid://45iylj1it1cp" path="res://assets/345560__inspectorj__footsteps-stones-a.mp3" id="3_4ra3w"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7waic"]
-size = Vector3(0.8289795, 1.9255981, 0.7030029)
+[sub_resource type="SphereShape3D" id="SphereShape3D_7p1mj"]
+radius = 0.34108806
 
-[node name="Enemy" type="StaticBody3D" unique_id=1101694845]
+[sub_resource type="SphereShape3D" id="SphereShape3D_md0e3"]
+radius = 0.5339025
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5uy6h"]
+radius = 0.26072744
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ra3w"]
+radius = 0.22347437
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c4w8v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ra3w"]
+height = 2.051941
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_md0e3"]
+radius = 0.6772461
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1262333446 groups=["enemy"]]
+script = ExtResource("1_md0e3")
 
 [node name="PSX_BagMan" parent="." unique_id=1877474547 instance=ExtResource("1_7waic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05961895, 0, -0.021904469)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.05961895, 0, -0.021904469)
 
 [node name="Skeleton3D" parent="PSX_BagMan/Armature" parent_id_path=PackedInt32Array(1877474547, 939423531) index="0" unique_id=976192850]
-bones/0/position = Vector3(0.20319703, 0.09467283, -0.013115497)
+bones/0/position = Vector3(0.12356977, 0.10031064, 0.48399696)
 bones/0/rotation = Quaternion(0.0011041922, 0.5610409, 0.827787, 0.0007483778)
-bones/2/position = Vector3(0.20319554, 0.013115044, 0.09467908)
+bones/2/position = Vector3(0.123568006, -0.48398957, 0.10033166)
 bones/2/rotation = Quaternion(1.323503e-23, 0.99999624, -2.670593e-27, -0.002738667)
-bones/3/position = Vector3(0.00030480608, -0.8384017, -0.49567878)
+bones/3/position = Vector3(0.000304821, -0.83840173, -0.49567878)
 bones/3/rotation = Quaternion(0.99999624, -1.3234839e-23, 0.0027386665, -3.6246214e-26)
-bones/4/position = Vector3(-0.060163043, -0.020274896, 0.9893881)
-bones/5/position = Vector3(-1.8028987e-10, -6.1686286e-08, -1.3788944e-08)
-bones/5/rotation = Quaternion(0.76209974, 7.718321e-08, 9.084937e-08, 0.6474596)
-bones/6/rotation = Quaternion(-0.132217, -1.8776649e-14, -3.1522994e-08, 0.9912209)
-bones/7/rotation = Quaternion(0.104869895, 3.5301623e-15, 2.5002933e-08, 0.994486)
-bones/9/rotation = Quaternion(0.12347956, 0.08184711, -0.6684803, 0.7288264)
-bones/10/rotation = Quaternion(-0.0007033536, -9.23936e-05, -0.030983308, 0.9995197)
-bones/11/rotation = Quaternion(0.001292364, 0.00015314201, 0.0032321813, 0.999994)
-bones/13/rotation = Quaternion(0.12401011, -0.08114208, 0.66371614, 0.7331565)
-bones/14/rotation = Quaternion(-0.00094937306, 0.0002315215, 0.05385191, 0.99854857)
-bones/15/rotation = Quaternion(0.0020674611, -0.00021035889, 0.030529248, 0.9995318)
-bones/17/rotation = Quaternion(0.5692678, -0.31576118, 0.5844988, -0.48434523)
-bones/18/rotation = Quaternion(-0.21521458, 0.006063493, -0.03388152, 0.9759601)
-bones/20/rotation = Quaternion(-0.5649392, -0.24780525, 0.6575438, 0.4325187)
-bones/21/rotation = Quaternion(-0.28064013, -0.008338074, 0.033394627, 0.95919573)
-bones/22/position = Vector3(-0.15992855, 0.0069709457, 0.09480795)
-bones/23/position = Vector3(-0.00030482127, -0.8384017, -0.49567878)
-bones/23/rotation = Quaternion(0.99999624, -1.3234928e-23, -0.0027386665, 4.006025e-27)
-bones/24/position = Vector3(-0.15992913, 0.09479738, -0.0069718505)
-bones/24/rotation = Quaternion(-0.0011041922, 0.5610409, 0.827787, -0.0007483778)
+bones/4/position = Vector3(-2.4303126e-17, -0.031779014, 0.8250605)
+bones/5/position = Vector3(3.5527137e-15, -0.08139716, 0.03539005)
+bones/5/rotation = Quaternion(0.70514125, 4.05017e-08, 1.1756997e-07, 0.7090669)
+bones/6/rotation = Quaternion(0.06946846, -6.3569203e-09, 9.086305e-09, 0.99758416)
+bones/7/rotation = Quaternion(-0.021724911, 3.3773666e-09, -4.07984e-09, 0.9997641)
+bones/9/rotation = Quaternion(0.43169504, 0.13133584, -0.59034157, 0.6692437)
+bones/10/rotation = Quaternion(0.41432825, -0.0822395, -0.05555063, 0.9047004)
+bones/11/rotation = Quaternion(-0.012423477, 0.20261042, 0.11342555, 0.97258896)
+bones/13/rotation = Quaternion(0.016941357, -0.15741052, 0.6393486, 0.75244147)
+bones/14/rotation = Quaternion(0.15677787, 0.028976608, 0.020925188, 0.986987)
+bones/15/rotation = Quaternion(0.0020465495, -4.577868e-05, 0.013428112, 0.9999078)
+bones/17/rotation = Quaternion(0.45002055, -0.09276819, 0.688548, -0.5610502)
+bones/18/rotation = Quaternion(-0.4092573, 0.01282934, -0.03193949, 0.9117697)
+bones/20/rotation = Quaternion(-0.6901525, -0.5250967, 0.46878892, 0.16792823)
+bones/21/rotation = Quaternion(-0.1992193, -0.005508433, 0.033976186, 0.97935027)
+bones/22/position = Vector3(-0.123568006, 0.44911033, 0.12982336)
+bones/23/position = Vector3(-0.00030482103, -0.8384017, -0.49567884)
+bones/23/rotation = Quaternion(0.99999624, -1.323503e-23, -0.0027386665, -3.357562e-26)
+bones/24/position = Vector3(-0.123568796, 0.1298109, -0.44912085)
+bones/24/rotation = Quaternion(-0.0011725526, 0.47675535, 0.8790351, -0.00063594844)
 
 [node name="HAND_L" parent="PSX_BagMan/Armature/Skeleton3D" index="0" unique_id=1328440448]
-transform = Transform3D(-0.9942627, 0.106878564, 0.004297331, -0.106817745, -0.99420017, 0.01250981, 0.005609448, 0.011979016, 0.9999125, 0.24155633, 1.0300325, 0.028447984)
+transform = Transform3D(-0.76075584, -0.1578038, -0.629562, -0.46275818, -0.54825395, 0.6966153, -0.45508814, 0.8212892, 0.34406245, 0.15769783, 1.0208279, 0.42926633)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="PSX_BagMan/Armature/Skeleton3D" index="2" unique_id=381598219]
+transform = Transform3D(1, -9.828886e-08, 2.2738142e-07, 1.18337326e-07, 0.99594873, -0.08992226, -2.1762185e-07, 0.089922264, 0.9959488, -7.37213e-08, 1.5859277, 0.17606364)
+bone_name = "HEAD"
+bone_idx = 7
+
+[node name="Area3D" type="Area3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D" unique_id=696304714]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D/Area3D" unique_id=578008573]
+shape = SubResource("SphereShape3D_7p1mj")
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="PSX_BagMan/Armature/Skeleton3D" index="3" unique_id=1665809459]
+transform = Transform3D(1, -9.6623225e-08, 2.2486054e-07, 1.2569268e-07, 0.99110246, -0.13310096, -2.0999914e-07, 0.13310097, 0.9911025, -2.7073375e-08, 1.1074415, 0.111804925)
+bone_name = "TORSO"
+bone_idx = 6
+
+[node name="Area3D" type="Area3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D2" unique_id=654954900]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D2/Area3D" unique_id=136563532]
+shape = SubResource("SphereShape3D_md0e3")
+
+[node name="BoneAttachment3D3" type="BoneAttachment3D" parent="PSX_BagMan/Armature/Skeleton3D" index="4" unique_id=790680325]
+transform = Transform3D(-0.99999654, -9.313228e-10, 0.0026678166, 0.0024779888, -0.37046525, 0.9288443, 0.0009883308, 0.9288467, 0.37046418, 0.12356977, 0.10031064, 0.48399696)
+bone_name = "FOOT.L"
+bone_idx = 0
+
+[node name="Area3D" type="Area3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D3" unique_id=2011153887]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D3/Area3D" unique_id=1826108648]
+transform = Transform3D(1.2338814, -1.4551915e-09, -1.3671524e-08, -3.0559022e-09, 1.2338812, 1.0430813e-07, -3.8315193e-08, 8.34465e-07, 1.2338747, 1.0430813e-07, -0.020507783, -1.0430813e-07)
+shape = SubResource("SphereShape3D_5uy6h")
+
+[node name="BoneAttachment3D4" type="BoneAttachment3D" parent="PSX_BagMan/Armature/Skeleton3D" index="5" unique_id=1737061196]
+transform = Transform3D(-0.9999964, 5.820767e-10, -0.0026678164, -0.002236083, -0.5454081, 0.8381688, -0.0014550458, 0.83817095, 0.54540664, -0.123568796, 0.1298109, -0.44912085)
+bone_name = "FOOT.R"
+bone_idx = 24
+
+[node name="Area3D" type="Area3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D4" unique_id=893955608]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D4/Area3D" unique_id=1849584963]
+transform = Transform3D(1, 4.7148205e-09, 0, 0, 1, -5.9604645e-08, -1.6298145e-09, 2.0861626e-07, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_4ra3w")
+
+[node name="BoneAttachment3D5" type="BoneAttachment3D" parent="PSX_BagMan/Armature/Skeleton3D" index="6" unique_id=1215941678]
+transform = Transform3D(1, -1.096111e-07, 2.232437e-07, 1.0837003e-07, 0.99998456, 0.005551756, -2.2384874e-07, -0.005551755, 0.9999846, 3.5386237e-15, 0.8604505, 0.11317617)
+bone_name = "SPINE"
+bone_idx = 5
+
+[node name="Area3D" type="Area3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D5" unique_id=1804271035]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PSX_BagMan/Armature/Skeleton3D/BoneAttachment3D5/Area3D" unique_id=511891370]
+shape = SubResource("SphereShape3D_c4w8v")
 
 [node name="AnimationPlayer" parent="PSX_BagMan" index="1" unique_id=1344352498]
 autoplay = &"Idle"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=821077550]
-transform = Transform3D(-0.9962809, 0, -0.0861647, 0, 1, 0, 0.0861647, 0, -0.9962809, 0, 1.1015608, -0.47492915)
+transform = Transform3D(0.99038196, 0, -0.13836056, 0, 1, 0, 0.13836056, 0, 0.99038196, 0, 1.1015608, 0.009738624)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1751797403]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12957764, 1.1214905, 0.01751709)
-shape = SubResource("BoxShape3D_7waic")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1420305406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86953735, 0)
+shape = SubResource("CapsuleShape3D_4ra3w")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1263935673]
+
+[node name="KillZone" type="Area3D" parent="." unique_id=42095336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96058726, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone" unique_id=1907102086]
+shape = SubResource("CapsuleShape3D_md0e3")
+
+[node name="FootstepsSound" type="AudioStreamPlayer3D" parent="." unique_id=180848983]
+stream = ExtResource("3_4ra3w")
+autoplay = true
+max_distance = 20.0
+
+[connection signal="child_entered_tree" from="CollisionShape3D" to="." method="_on_collision_shape_3d_child_entered_tree"]
+[connection signal="area_entered" from="KillZone" to="." method="_on_kill_zone_area_entered"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
 
 [editable path="PSX_BagMan"]
